@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
-function dbConnection(){
-    mongoose.connect('mongodb+srv://admin:qjU!CN2pJ8Jfzcf@kanban.3vupq.mongodb.net/?retryWrites=true&w=majority&appName=kanban');
+const connectionString = 'mongodb+srv://admin:@kanban.3vupq.mongodb.net/?retryWrites=true&w=majority&appName=kanban';
+
+function dbConnection() {
+    mongoose.connect(connectionString)
+        .then(() => console.log('Connected!'))
+        .catch(err => console.log(err));
 }
 
 module.exports = dbConnection;
